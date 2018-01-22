@@ -99,5 +99,21 @@ public class IntArrayWorker
       }
     }
   }
- 
+  
+  
+  public int getCount()
+  {
+	  int = InstanceOf
+  }
+  
+  public int getLargest()
+  {
+	  
+  }
+  
+  public int getColTotal()
+  {
+	  
+  }
+  
 }

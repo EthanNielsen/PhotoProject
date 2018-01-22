@@ -1,5 +1,6 @@
+bin/
 *.class
-
+.DS_Store
 # BlueJ files
 *.ctxt
 

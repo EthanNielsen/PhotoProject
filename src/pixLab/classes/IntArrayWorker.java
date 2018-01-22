@@ -103,7 +103,8 @@ public class IntArrayWorker
   
   public int getCount()
   {
-	  int = InstanceOf
+
+	  for (int InstanceOf = 0, )
   }
   
   public int getLargest()

@@ -180,10 +180,24 @@ public class Picture extends SimplePicture
 	  Pixel fromPixel = null;
 	  Pixel toPixel = null;
 	  Picture gabe = new Picture("gabe.png");
-	  Pixel [][] toPixels = this.getPixels2D();
+	  Pixel [][] toPixels = this.getPixels2D(); // This is the base layer of the picture.
 	  Pixel [][] fromPixels = gabe.getPixels2D(); // This is the layer we are adding to the picture
-	  
-	  
+	  int fromRow = 0;
+	  for (int toRow = startRow; fromRow < fromPixels.length && toRow < toPixels.length; toRow++)
+	  {
+		  int fromCol = 0;
+		  for (int toCol = startCol; fromCol < fromPixels[0].length && toCol < toPixels[0].length; toCol++)
+		  {
+			  fromPixel = fromPixels[fromRow][fromCol];
+			  toPixel = toPixels[toRow][toCol];
+			  if(!fromPixel.isTrsparent())
+			  {
+				  toPixel.setColor(fromPixel.getColor());;
+			  }
+			  fromCol++;
+		  }
+		  fromRow++;
+	  }
   }
 
   /** Method to create a collage of several pictures */

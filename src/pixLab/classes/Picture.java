@@ -7,6 +7,7 @@ import java.text.*;
 import java.util.*;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
 
+
 /**
  * A class that represents a picture.  This class inherits from 
  * SimplePicture and allows the student to add functionality to
@@ -173,6 +174,17 @@ public class Picture extends SimplePicture
       }
     }   
   }
+  
+  public void gabeFilter(int startRow, int startCol)
+  {
+	  Pixel fromPixel = null;
+	  Pixel toPixel = null;
+	  Picture gabe = new Picture("gabe.png");
+	  Pixel [][] toPixels = this.getPixels2D();
+	  Pixel [][] fromPixels = gabe.getPixels2D(); // This is the layer we are adding to the picture
+	  
+	  
+  }
 
   /** Method to create a collage of several pictures */
   public void createCollage()
@@ -217,7 +229,6 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
   
   /* Main method for testing - each class in Java can have a main 
    * method 

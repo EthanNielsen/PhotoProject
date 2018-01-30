@@ -183,16 +183,19 @@ public class Picture extends SimplePicture
 	  Pixel [][] toPixels = this.getPixels2D(); // This is the base layer of the picture.
 	  Pixel [][] fromPixels = gabe.getPixels2D(); // This is the layer we are adding to the picture
 	  int fromRow = 0;
-	  for (int toRow = startRow; fromRow < fromPixels.length && toRow < toPixels.length; toRow++)
+	  for (int toRow = startRow; toRow < toPixels.length && fromRow < fromPixels.length; toRow++)
 	  {
 		  int fromCol = 0;
-		  for (int toCol = startCol; fromCol < fromPixels[0].length && toCol < toPixels[0].length; toCol++)
+		  for (int toCol = startCol; toCol < toPixels[0].length && fromCol < fromPixels[0].length; toCol++)
 		  {
 			  fromPixel = fromPixels[fromRow][fromCol];
 			  toPixel = toPixels[toRow][toCol];
 			  if(!fromPixel.isTrsparent())
 			  {
-				  toPixel.setColor(fromPixel.getColor());;
+				  //toPixel.setColor(fromPixel.getColor());;
+				  toPixel.setRed(fromPixel.getRed());
+				  toPixel.setBlue(fromPixel.getBlue());
+				  toPixel.setGreen(fromPixel.getGreen());
 			  }
 			  fromCol++;
 		  }

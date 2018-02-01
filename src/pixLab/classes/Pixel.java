@@ -353,7 +353,7 @@ public class Pixel
    return average;
  }
   
- 	
+ //Checks if a pixel is transparent.
  public boolean isTrsparent()
  {
  	boolean isTransparent = false;

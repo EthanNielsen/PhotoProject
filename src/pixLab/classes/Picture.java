@@ -99,7 +99,7 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
+   
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
@@ -108,17 +108,25 @@ public class Picture extends SimplePicture
     Pixel[][] pixels = this.getPixels2D();
     Pixel leftPixel = null;
     Pixel rightPixel = null;
+    Pixel temp = null;
     int width = pixels[0].length;
     for (int row = 0; row < pixels.length; row++)
     {
       for (int col = 0; col < width / 2; col++)
       {
+    	  	for (int col = 0; col < width)
+    	  	{
+    	  		
+    	  	}
+    	  
+    	  
         leftPixel = pixels[row][col];
         rightPixel = pixels[row][width - 1 - col];
         rightPixel.setColor(leftPixel.getColor());
-      }ss
+      }
     } 
   }
+  
   
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
@@ -202,6 +210,31 @@ public class Picture extends SimplePicture
 		  fromRow++;
 	  }
   }
+
+  
+public void glichArt(Picture fromPic, int startRow, int startCol)
+{
+ Pixel fromPixel = null;
+ Pixel toPixel = null;
+ Pixel[][] toPixels = this.getPixels2D();
+ Pixel[][] fromPixels = fromPic.getPixels2D();
+ for (int fromRow = 0, toRow = startRow; 
+      fromRow < fromPixels.length &&
+      toRow < toPixels.length; 
+      fromRow++, toRow++)
+ {
+   for (int fromCol = 0, toCol = startCol; 
+        fromCol < fromPixels[0].length &&
+        toCol < toPixels[0].length;  
+        fromCol++, toCol++)
+   {
+     fromPixel = fromPixels[fromRow][fromCol];
+     toPixel = toPixels[toRow][toCol];
+     toPixel.setColor(fromPixel.getColor());
+   }
+ }   
+}
+
 
   /** Method to create a collage of several pictures */
   public void createCollage()

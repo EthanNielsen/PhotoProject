@@ -205,6 +205,32 @@ public class Picture extends SimplePicture
 	  }
   }
 
+public void glitchArt()
+{
+	Pixel [][] pixels = this.getPixels2D();
+	int shiftAmount = (int) (.33 * pixels[0].length);
+	int width = pixels[0].length;
+	
+	for (int row = 0; row < pixels.length; row++)
+	{
+		Color [] currentColors = new Color[pixels[0].length];
+		
+		for (int col = 0; col < pixels[0].length; col++)
+		{
+			currentColors[col] = pixels[row][col].getColor();
+		}
+		
+		for (int col = 0; col < pixels[0].length; col++)
+		{
+			pixels[row][col].setColor(currentColors[(col + shiftAmount) % width]); // This moves the picture over to the left side and slides the rest of the pixels to the right.
+		}
+ 	}
+	//PUT RED AND BLUE PICTURES HERE
+	
+	
+	
+}
+  
   
 public void glichArt(Picture fromPic, int startRow, int startCol)
 {

@@ -204,7 +204,7 @@ public class Picture extends SimplePicture
 		  fromRow++;
 	  }
   }
-
+  
   // This is what wrappes the pixels on the right side and puts a certain amount of them on the right side and moves the excess pixels to the right.
 public void glitchArt()
 {
@@ -226,8 +226,46 @@ public void glitchArt()
 			pixels[row][col].setColor(currentColors[(col + shiftAmount) % width]); // This moves the picture over to the left side and slides the rest of the pixels to the right.
 		}
 		
+	    Pixel[][] smallPixel = this.getPixels2D();
+	    Pixel leftPixel = null;
+	    Pixel rightPixel = null;
+	    int smallWidth = (int) (.80 * pixels[0].length);
+	    for (int row = 0; row < pixels.length; row++)
+	    {
+	      for (int col = 0; col < smallWidth / 2; col++)
+	      {
+	        leftPixel = smallPixel[row][col];
+	        rightPixel = smallPixel[row][smallWidth - 1 - col];
+	        rightPixel.setColor(leftPixel.getColor());
+	      }
+	      
+	      
+	    } 
  	}
+	
+	
+	
 	//PUT RED AND BLUE PICTURES HERE
+//	
+//	Pixel color1;
+//	Pixel color2;
+//	
+//	double redDistance = color1.getRed() - color2.getRed();
+//	double greenDistance = color1.getGreen() - color2.getGreen();
+//	double blueDistance = color1.getBlue() - color2.getBlue();
+//	double distance = Math.sqrt(redDistance * redDistance + 
+//	                               greenDistance * greenDistance +
+//	                               blueDistance * blueDistance);
+//	
+// 	boolean isBlue = true;
+// 	
+// 	if (getAlpha() == 0 && getRed() == 0 && getGreen() == 0 && getBlue() == 255)
+// 	{
+// 		isBlue = true;
+// 	}
+// 	return isBlue;
+//	
+//	
 	
 	
 	

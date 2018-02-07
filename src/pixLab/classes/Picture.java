@@ -205,10 +205,11 @@ public class Picture extends SimplePicture
 	  }
   }
 
+  // This is what wrappes the pixels on the right side and puts a certain amount of them on the right side and moves the excess pixels to the right.
 public void glitchArt()
 {
 	Pixel [][] pixels = this.getPixels2D();
-	int shiftAmount = (int) (.33 * pixels[0].length);
+	int shiftAmount = (int) (.66 * pixels[0].length);
 	int width = pixels[0].length;
 	
 	for (int row = 0; row < pixels.length; row++)
@@ -224,6 +225,7 @@ public void glitchArt()
 		{
 			pixels[row][col].setColor(currentColors[(col + shiftAmount) % width]); // This moves the picture over to the left side and slides the rest of the pixels to the right.
 		}
+		
  	}
 	//PUT RED AND BLUE PICTURES HERE
 	
@@ -231,7 +233,7 @@ public void glitchArt()
 	
 }
   
-  
+ //THIS IS INNCORRECT 
 public void glichArt(Picture fromPic, int startRow, int startCol)
 {
  Pixel fromPixel = null;
@@ -307,7 +309,7 @@ public void glichArt(Picture fromPic, int startRow, int startCol)
   {
     Picture beach = new Picture("beach.jpg");
     beach.explore();
-    beach.zeroBlue();
+    beach.glitchArt();
     beach.explore();
   }
   

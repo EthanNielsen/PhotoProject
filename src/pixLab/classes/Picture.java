@@ -229,18 +229,32 @@ public void glitchArt()
 	    Pixel[][] smallPixel = this.getPixels2D();
 	    Pixel leftPixel = null;
 	    Pixel rightPixel = null;
+	    int redPixel = 0;
+	    int greenPixel = 0;
+	    
 	    int smallWidth = (int) (.80 * pixels[0].length);
-	    for (int row = 0; row < pixels.length; row++)
+	    for (int row1 = 0; row1 < pixels.length; row1++)
 	    {
 	      for (int col = 0; col < smallWidth / 2; col++)
 	      {
-	        leftPixel = smallPixel[row][col];
-	        rightPixel = smallPixel[row][smallWidth - 1 - col];
+	        leftPixel = smallPixel[row1][col];
+	        rightPixel = smallPixel[row1][smallWidth - 1 - col];
 	        rightPixel.setColor(leftPixel.getColor());
 	      }
-	      
-	      
 	    } 
+	    
+	     for (int row1 = 0; row1 < pixels.length; row1++)
+	     {
+	    	 for (int col = 0; col < smallWidth / 2; col++)
+	    	 {
+	    		 redPixel = smallPixel[row1][col].getRed();
+	    		 greenPixel = smallPixel[row1][col].getGreen();
+	    		 
+	    		 
+	    		 
+	    		 
+	    	 }
+	    }
  	}
 	
 	
@@ -271,29 +285,29 @@ public void glitchArt()
 	
 }
   
- //THIS IS INNCORRECT 
-public void glichArt(Picture fromPic, int startRow, int startCol)
-{
- Pixel fromPixel = null;
- Pixel toPixel = null;
- Pixel[][] toPixels = this.getPixels2D();
- Pixel[][] fromPixels = fromPic.getPixels2D();
- for (int fromRow = 0, toRow = startRow; 
-      fromRow < fromPixels.length &&
-      toRow < toPixels.length; 
-      fromRow++, toRow++)
- {
-   for (int fromCol = 0, toCol = startCol; 
-        fromCol < fromPixels[0].length &&
-        toCol < toPixels[0].length;  
-        fromCol++, toCol++)
-   {
-     fromPixel = fromPixels[fromRow][fromCol];
-     toPixel = toPixels[toRow][toCol];
-     toPixel.setColor(fromPixel.getColor());
-   }
- }   
-}
+ //THIS IS INNCORRECT DON'T CALL IT
+//public void glichArt(Picture fromPic, int startRow, int startCol)
+//{
+// Pixel fromPixel = null;
+// Pixel toPixel = null;
+// Pixel[][] toPixels = this.getPixels2D();
+// Pixel[][] fromPixels = fromPic.getPixels2D();
+// for (int fromRow = 0, toRow = startRow; 
+//      fromRow < fromPixels.length &&
+//      toRow < toPixels.length; 
+//      fromRow++, toRow++)
+// {
+//   for (int fromCol = 0, toCol = startCol; 
+//        fromCol < fromPixels[0].length &&
+//        toCol < toPixels[0].length;  
+//        fromCol++, toCol++)
+//   {
+//     fromPixel = fromPixels[fromRow][fromCol];
+//     toPixel = toPixels[toRow][toCol];
+//     toPixel.setColor(fromPixel.getColor());
+//   }
+// }   
+//}
 
 
   /** Method to create a collage of several pictures */

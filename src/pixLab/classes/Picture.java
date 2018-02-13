@@ -250,9 +250,14 @@ public void glitchArt()
 	    		 redPixel = smallPixel[row1][col].getRed();
 	    		 greenPixel = smallPixel[row1][col].getGreen();
 	    		 
-	    		 
-	    		 
-	    		 
+	 	     for (smallPixel[row1][col].redPixel)
+	 	     {
+	 	    	 
+	 	     }
+		     rightPixel = smallPixel[row1][smallWidth - 1 - col];
+		     rightPixel.setColor(leftPixel.getColor());
+		     
+		     
 	    	 }
 	    }
  	}

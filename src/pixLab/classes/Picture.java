@@ -243,25 +243,25 @@ public void glitchArt()
 	      }
 	    } 
 	    
-	     for (int row1 = 0; row1 < pixels.length; row1++)
-	     {
-	    	 for (int col = 0; col < smallWidth / 2; col++)
-	    	 {
-	 	     leftPixel = smallPixel[row1][col];
-		     rightPixel = smallPixel[row1][smallWidth - 1 - col];
-		        
-	    		 redPixel = smallPixel[row1][col].getRed();
-	    		 greenPixel = smallPixel[row1][col].getGreen();
-	    		 
-	 	    
-		     rightPixel = smallPixel[row1][smallWidth - 1 - col];
-		     rightPixel.setGreen(leftPixel.getGreen());
-		     rightPixel.setRed(leftPixel.getRed());
-		     leftPixel.setGreen(rightPixel.getGreen());
-		     leftPixel.setRed(rightPixel.getRed());
-		     
-	    	 }
-	    }
+//	     for (int row1 = 0; row1 < pixels.length; row1++)
+//	     {
+//	    	 for (int col = 0; col < smallWidth / 2; col++)
+//	    	 {
+//	 	     leftPixel = smallPixel[row1][col];
+//		     rightPixel = smallPixel[row1][smallWidth - 1 - col];
+//		        
+//	    		 redPixel = smallPixel[row1][col].getRed();
+//	    		 greenPixel = smallPixel[row1][col].getGreen();
+//	    		 
+//	 	    
+//		     rightPixel = smallPixel[row1][smallWidth - 1 - col];
+//		     rightPixel.setGreen(leftPixel.getGreen());
+//		     rightPixel.setRed(leftPixel.getRed());
+//		     leftPixel.setGreen(rightPixel.getGreen());
+//		     leftPixel.setRed(rightPixel.getRed());
+//		     
+//	    	 }
+//	    }
  	}
 	
 	

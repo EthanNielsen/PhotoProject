@@ -1,11 +1,8 @@
 package pixLab.classes;
-import java.awt.*;
-import java.awt.font.*;
-import java.awt.geom.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.text.*;
-import java.util.*;
-import java.util.List; // resolves problem with java.awt.List and java.util.List
 
 
 /**
@@ -205,11 +202,40 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  public static void pixelMerge(Picture pic1, Picture pic2)
+  {
+	  Pixel [][] pixels1 = pic1.getPixels2D();
+	  Pixel [][] pixels2 = pic2.getPixels2D();
+	  
+	  for (int row = 0; row < pixels1.length; row++) 
+	  {
+		  for (int col = 0; col < pixels1[0].length; col++)
+			{
+			  
+			  if(pixels1[row][col].colorDistance(Color.ORANGE) < 180) 
+			  {
+				  if(!pixels1[row][col].isTrsparent()) 
+				  {
+					  try 
+					  {
+						  pixels2[row][col].setColor(pixels1[row][col].getColor());
+					  }
+					  catch( ArrayIndexOutOfBoundsException ex )
+					  {
+						  
+					  }
+				  }
+			  }
+			  
+			}
+	  }
+  }
+  
   // This is what wrappes the pixels on the right side and puts a certain amount of them on the right side and moves the excess pixels to the right.
 public void glitchArt()
 {
 	Pixel [][] pixels = this.getPixels2D();
-	int shiftAmount = (int) (.66 * pixels[0].length);
+	int shiftAmount = (int) (.8 * pixels[0].length);
 	int width = pixels[0].length;
 	
 	for (int row = 0; row < pixels.length; row++)
@@ -231,7 +257,7 @@ public void glitchArt()
 	    Pixel rightPixel = null;
 	    int redPixel = 0;
 	    int greenPixel = 0;
-	    
+	    /*
 	    int smallWidth = (int) (.80 * pixels[0].length);
 	    for (int row1 = 0; row1 < pixels.length; row1++)
 	    {
@@ -242,7 +268,7 @@ public void glitchArt()
 	        rightPixel.setColor(leftPixel.getColor());
 	      }
 	    } 
-	    
+	    */
 //	     for (int row1 = 0; row1 < pixels.length; row1++)
 //	     {
 //	    	 for (int col = 0; col < smallWidth / 2; col++)
@@ -360,6 +386,23 @@ public void glitchArt()
       }
     }
   }
+
+  public void addMessage(String message, int xPos, int yPos, Color color)
+  {
+	  
+    // get a graphics context to use to draw on the buffered image
+    Graphics2D graphics2d = getBufferedImage().createGraphics();
+    
+    // set the color
+    graphics2d.setPaint(color);
+    
+    // set the font to Helvetica bold style and size 16
+    graphics2d.setFont(new Font("Helvetica",Font.BOLD,16));
+    
+    // draw the message
+    graphics2d.drawString(message,xPos,yPos);
+    
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 
@@ -369,7 +412,15 @@ public void glitchArt()
     Picture beach = new Picture("beach.jpg");
     beach.explore();
     beach.glitchArt();
+    beach.addMessage("Ethan", 350, 125, Color.RED);
+    beach.write("EthanNielsenClassFilter.jpg");
     beach.explore();
+    
+    Picture temple = new Picture("temple.jpg");
+    Picture bobRoss = new Picture("BobRoss.png");
+    pixelMerge(bobRoss, temple);
+    temple.explore();
+   
   }
   
 } // this } is the end of class Picture, put all new methods before this
